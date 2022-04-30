@@ -4,3 +4,6 @@ Application::Application()
 {
 
 }
+Application::~Application(){
+
+}
