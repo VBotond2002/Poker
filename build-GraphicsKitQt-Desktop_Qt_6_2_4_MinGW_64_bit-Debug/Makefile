@@ -182,6 +182,7 @@ Makefile: ../default/GraphicsKitQt.pro ../../qtcreator/6.2.4/mingw_64/mkspecs/wi
 		../../qtcreator/6.2.4/mingw_64/mkspecs/features/qt_config.prf \
 		../../qtcreator/6.2.4/mingw_64/mkspecs/win32-g++/qmake.conf \
 		../../qtcreator/6.2.4/mingw_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../qtcreator/6.2.4/mingw_64/mkspecs/features/exclusive_builds.prf \
 		../../qtcreator/6.2.4/mingw_64/mkspecs/features/toolchain.prf \
 		../../qtcreator/6.2.4/mingw_64/mkspecs/features/default_pre.prf \
@@ -201,7 +202,6 @@ Makefile: ../default/GraphicsKitQt.pro ../../qtcreator/6.2.4/mingw_64/mkspecs/wi
 		../../qtcreator/6.2.4/mingw_64/mkspecs/features/yacc.prf \
 		../../qtcreator/6.2.4/mingw_64/mkspecs/features/lex.prf \
 		../default/GraphicsKitQt.pro \
-		.qmake.stash \
 		../../qtcreator/6.2.4/mingw_64/mkspecs/features/build_pass.prf
 	$(QMAKE) -o Makefile ..\default\GraphicsKitQt.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 ../../qtcreator/6.2.4/mingw_64/mkspecs/features/spec_pre.prf:
@@ -316,6 +316,7 @@ Makefile: ../default/GraphicsKitQt.pro ../../qtcreator/6.2.4/mingw_64/mkspecs/wi
 ../../qtcreator/6.2.4/mingw_64/mkspecs/features/qt_config.prf:
 ../../qtcreator/6.2.4/mingw_64/mkspecs/win32-g++/qmake.conf:
 ../../qtcreator/6.2.4/mingw_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../qtcreator/6.2.4/mingw_64/mkspecs/features/exclusive_builds.prf:
 ../../qtcreator/6.2.4/mingw_64/mkspecs/features/toolchain.prf:
 ../../qtcreator/6.2.4/mingw_64/mkspecs/features/default_pre.prf:
@@ -335,7 +336,6 @@ Makefile: ../default/GraphicsKitQt.pro ../../qtcreator/6.2.4/mingw_64/mkspecs/wi
 ../../qtcreator/6.2.4/mingw_64/mkspecs/features/yacc.prf:
 ../../qtcreator/6.2.4/mingw_64/mkspecs/features/lex.prf:
 ../default/GraphicsKitQt.pro:
-.qmake.stash:
 ../../qtcreator/6.2.4/mingw_64/mkspecs/features/build_pass.prf:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\default\GraphicsKitQt.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
