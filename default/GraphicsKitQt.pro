@@ -4,6 +4,7 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
+        application.cpp \
         main.cpp
 
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/./ -lgraphics64
@@ -24,3 +25,6 @@ else:unix: LIBS += -L$$PWD/./ -llibSDL2_ttf.dll
 
 INCLUDEPATH += $$PWD/SDL2
 DEPENDPATH += $$PWD/SDL2
+
+HEADERS += \
+    application.hpp
