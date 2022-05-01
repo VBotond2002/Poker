@@ -2,6 +2,8 @@
 #define CARD_HPP
 #include "object.hpp"
 #include "iostream"
+#include "vector"
+#include "math.h"
 typedef unsigned int usi;
 enum CARDNUM{
     two,//0 index
@@ -24,6 +26,10 @@ enum CARDCOLOR{
     clover,//tref
     pikes//pikk
 };
+struct Point{
+    int x, y;
+};
+
 class Card: public Object
 {
 public:
@@ -38,6 +44,7 @@ protected:
     usi x,y,w,h;
     CARDNUM type;
     CARDCOLOR ccolor;
+    //std::vector<std::vector<Color>>
 };
 
 #endif // CARD_HPP

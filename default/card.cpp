@@ -40,6 +40,7 @@ void Card::show(){
        gout<<color(0,0,0);
        break;//pikk
    }
+   gout<<move_to(x,y);
     switch(type){
         case two:
            gout<<move(gout.twidth("2")/2,0);
