@@ -2,8 +2,9 @@
 using namespace genv;
 MyApp::MyApp(usi _W_, usi _H_):Application(_W_,_H_)
 {
-    testcard=new Card(0,0,57,89,two,pikes);
+    testcard=new Card(10,10,57,89,ace,hearts);
     setbackgroundcolor(49, 112, 24);
+    gout.load_font("LiberationSans-Regular.ttf",20);
 }
 MyApp::~MyApp(){
 

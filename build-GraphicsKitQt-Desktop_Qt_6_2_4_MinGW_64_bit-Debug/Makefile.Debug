@@ -127,12 +127,16 @@ debug/card.o: ../default/card.cpp ../default/card.hpp \
 
 debug/main.o: ../default/main.cpp ../default/myapp.hpp \
 		../default/application.hpp \
-		../default/graphics.hpp
+		../default/graphics.hpp \
+		../default/card.hpp \
+		../default/object.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\default\main.cpp
 
 debug/myapp.o: ../default/myapp.cpp ../default/myapp.hpp \
 		../default/application.hpp \
-		../default/graphics.hpp
+		../default/graphics.hpp \
+		../default/card.hpp \
+		../default/object.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\myapp.o ..\default\myapp.cpp
 
 debug/object.o: ../default/object.cpp ../default/object.hpp \

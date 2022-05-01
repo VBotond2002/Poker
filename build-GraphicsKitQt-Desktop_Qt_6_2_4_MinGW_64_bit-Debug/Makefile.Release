@@ -127,12 +127,16 @@ release/card.o: ../default/card.cpp ../default/card.hpp \
 
 release/main.o: ../default/main.cpp ../default/myapp.hpp \
 		../default/application.hpp \
-		../default/graphics.hpp
+		../default/graphics.hpp \
+		../default/card.hpp \
+		../default/object.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o ..\default\main.cpp
 
 release/myapp.o: ../default/myapp.cpp ../default/myapp.hpp \
 		../default/application.hpp \
-		../default/graphics.hpp
+		../default/graphics.hpp \
+		../default/card.hpp \
+		../default/object.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\myapp.o ..\default\myapp.cpp
 
 release/object.o: ../default/object.cpp ../default/object.hpp \
