@@ -51,12 +51,24 @@ OBJECTS_DIR   = release
 ####### Files
 
 SOURCES       = ..\default\application.cpp \
-		..\default\main.cpp 
+		..\default\card.cpp \
+		..\default\main.cpp \
+		..\default\myapp.cpp \
+		..\default\object.cpp 
 OBJECTS       = release/application.o \
-		release/main.o
+		release/card.o \
+		release/main.o \
+		release/myapp.o \
+		release/object.o
 
-DIST          =  application.hpp ..\default\application.cpp \
-		..\default\main.cpp
+DIST          =  application.hpp \
+		card.hpp \
+		myapp.hpp \
+		object.hpp ..\default\application.cpp \
+		..\default\card.cpp \
+		..\default\main.cpp \
+		..\default\myapp.cpp \
+		..\default\object.cpp
 QMAKE_TARGET  = GraphicsKitQt
 DESTDIR        = release\ #avoid trailing-slash linebreak
 TARGET         = GraphicsKitQt.exe
@@ -79,7 +91,7 @@ dist:
 	$(ZIP) GraphicsKitQt.zip $(SOURCES) $(DIST) ..\default\GraphicsKitQt.pro ..\..\qtcreator\6.2.4\mingw_64\mkspecs\features\spec_pre.prf ..\..\qtcreator\6.2.4\mingw_64\mkspecs\features\device_config.prf ..\..\qtcreator\6.2.4\mingw_64\mkspecs\common\sanitize.conf ..\..\qtcreator\6.2.4\mingw_64\mkspecs\common\gcc-base.conf ..\..\qtcreator\6.2.4\mingw_64\mkspecs\common\g++-base.conf ..\..\qtcreator\6.2.4\mingw_64\mkspecs\features\win32\windows_vulkan_sdk.prf ..\..\qtcreator\6.2.4\mingw_64\mkspecs\common\windows-vulkan.conf ..\..\qtcreator\6.2.4\mingw_64\mkspecs\common\g++-win32.conf ..\..\qtcreator\6.2.4\mingw_64\mkspecs\common\windows-desktop.conf ..\..\qtcreator\6.2.4\mingw_64\mkspecs\qconfig.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_ext_freetype.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_ext_libpng.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_concurrent.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_core.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_core_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_dbus.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_dbus_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_designer.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_designer_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_designercomponents_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_entrypoint_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_fb_support_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_gui.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_gui_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_help.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_help_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_labsanimation.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_labsanimation_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_labsfolderlistmodel.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_labsfolderlistmodel_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_labsqmlmodels.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_labsqmlmodels_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_labssettings.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_labssettings_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_labssharedimage.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_labssharedimage_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_labswavefrontmesh.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_labswavefrontmesh_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_linguist.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_linguist_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_network.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_network_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_opengl.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_opengl_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_openglwidgets.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_openglwidgets_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_packetprotocol_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_printsupport.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_qml.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_qml_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmlcompiler_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmlcore.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmlcore_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmldebug_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmldevtools_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmldom_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmllocalstorage.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmllocalstorage_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmlmodels.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmlmodels_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmltest.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmlworkerscript.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmlworkerscript_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmlxmllistmodel.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmlxmllistmodel_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_quick.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_quick_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickcontrols2.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickcontrols2impl.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickcontrols2impl_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickcontrolstestutilsprivate_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickdialogs2.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickdialogs2_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickdialogs2utils.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickdialogs2utils_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_quicklayouts.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_quicklayouts_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickshapes_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_quicktemplates2.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_quicktestutilsprivate_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickwidgets.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickwidgets_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_sql.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_sql_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_svg.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_svg_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_svgwidgets.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_svgwidgets_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_testlib.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_testlib_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_tools_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_uiplugin.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_uitools.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_uitools_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_widgets.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_widgets_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_xml.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_xml_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\modules\qt_lib_zlib_private.pri ..\..\qtcreator\6.2.4\mingw_64\mkspecs\features\qt_functions.prf ..\..\qtcreator\6.2.4\mingw_64\mkspecs\features\qt_config.prf ..\..\qtcreator\6.2.4\mingw_64\mkspecs\win32-g++\qmake.conf ..\..\qtcreator\6.2.4\mingw_64\mkspecs\features\spec_post.prf .qmake.stash ..\..\qtcreator\6.2.4\mingw_64\mkspecs\features\exclusive_builds.prf ..\..\qtcreator\6.2.4\mingw_64\mkspecs\features\toolchain.prf ..\..\qtcreator\6.2.4\mingw_64\mkspecs\features\default_pre.prf ..\..\qtcreator\6.2.4\mingw_64\mkspecs\features\win32\default_pre.prf ..\..\qtcreator\6.2.4\mingw_64\mkspecs\features\resolve_config.prf ..\..\qtcreator\6.2.4\mingw_64\mkspecs\features\exclusive_builds_post.prf ..\..\qtcreator\6.2.4\mingw_64\mkspecs\features\default_post.prf ..\..\qtcreator\6.2.4\mingw_64\mkspecs\features\build_pass.prf ..\..\qtcreator\6.2.4\mingw_64\mkspecs\features\win32\console.prf ..\..\qtcreator\6.2.4\mingw_64\mkspecs\features\qml_debug.prf ..\..\qtcreator\6.2.4\mingw_64\mkspecs\features\entrypoint.prf ..\..\qtcreator\6.2.4\mingw_64\mkspecs\features\precompile_header.prf ..\..\qtcreator\6.2.4\mingw_64\mkspecs\features\warn_on.prf ..\..\qtcreator\6.2.4\mingw_64\mkspecs\features\qmake_use.prf ..\..\qtcreator\6.2.4\mingw_64\mkspecs\features\file_copies.prf ..\..\qtcreator\6.2.4\mingw_64\mkspecs\features\testcase_targets.prf ..\..\qtcreator\6.2.4\mingw_64\mkspecs\features\exceptions.prf ..\..\qtcreator\6.2.4\mingw_64\mkspecs\features\yacc.prf ..\..\qtcreator\6.2.4\mingw_64\mkspecs\features\lex.prf ..\default\GraphicsKitQt.pro      
 
 clean: compiler_clean 
-	-$(DEL_FILE) release\application.o release\main.o
+	-$(DEL_FILE) release\application.o release\card.o release\main.o release\myapp.o release\object.o
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash
@@ -108,8 +120,24 @@ release/application.o: ../default/application.cpp ../default/application.hpp \
 		../default/graphics.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\application.o ..\default\application.cpp
 
-release/main.o: ../default/main.cpp ../default/graphics.hpp
+release/card.o: ../default/card.cpp ../default/card.hpp \
+		../default/object.hpp \
+		../default/graphics.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\card.o ..\default\card.cpp
+
+release/main.o: ../default/main.cpp ../default/myapp.hpp \
+		../default/application.hpp \
+		../default/graphics.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o ..\default\main.cpp
+
+release/myapp.o: ../default/myapp.cpp ../default/myapp.hpp \
+		../default/application.hpp \
+		../default/graphics.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\myapp.o ..\default\myapp.cpp
+
+release/object.o: ../default/object.cpp ../default/object.hpp \
+		../default/graphics.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\object.o ..\default\object.cpp
 
 ####### Install
 

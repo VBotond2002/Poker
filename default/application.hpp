@@ -1,12 +1,24 @@
 #ifndef APPLICATION_HPP
 #define APPLICATION_HPP
 #include "graphics.hpp"
-
+#include "vector"
+typedef unsigned int usi;
+struct Color{usi r,g,b;};
 class Application
 {
 public:
-    Application();
+    Application(usi, usi);
+    void setbackgroundcolor(usi,usi,usi);
+    void setbackgroundcolor(Color c);
+    virtual void handle(genv::event ev)=0;
+    virtual void show()=0;
+    virtual  void update()=0;
+    virtual void apploop()=0;
     virtual ~Application();
+protected:
+    //std::vector<Widget*> container
+    Color background_color;
+    usi _W,_H;
 };
 
 #endif // APPLICATION_HPP

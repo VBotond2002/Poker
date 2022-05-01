@@ -5,7 +5,10 @@ CONFIG -= qt
 
 SOURCES += \
         application.cpp \
-        main.cpp
+        card.cpp \
+        main.cpp \
+        myapp.cpp \
+        object.cpp
 
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/./ -lgraphics64
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/./ -lgraphics64d
@@ -27,4 +30,7 @@ INCLUDEPATH += $$PWD/SDL2
 DEPENDPATH += $$PWD/SDL2
 
 HEADERS += \
-    application.hpp
+    application.hpp \
+    card.hpp \
+    myapp.hpp \
+    object.hpp

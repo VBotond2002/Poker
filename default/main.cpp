@@ -1,13 +1,8 @@
-#include "graphics.hpp"
-using namespace genv;
-
-const unsigned int _W=600,_H=400;
+#include "myapp.hpp"
+const unsigned int _W=800,_H=500;
 int main()
 {
-    gout.open(_W,_H);
-    gout<<refresh;
-    event ev;
-    while(gin >> ev) {
-    }
+    MyApp app(_W,_H);
+    app.apploop();
     return 0;
 }
