@@ -1,6 +1,7 @@
 #ifndef CARD_HPP
 #define CARD_HPP
 #include "object.hpp"
+#include "iostream"
 typedef unsigned int usi;
 enum CARDNUM{
     two,//0 index

@@ -1,5 +1,5 @@
 #include "myapp.hpp"
-const unsigned int _W=600,_H=400;
+const unsigned int _W=800,_H=500;
 int main()
 {
     MyApp app(_W,_H);
