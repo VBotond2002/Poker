@@ -10,13 +10,13 @@ public:
     virtual void update()=0;
     virtual void show()=0;
     bool getmdwn(){return mousedown;}
-    bool getonhvr(){return onhover;}
-    void cmousedown(usi,usi);
-    void conhover(usi,usi);
+    bool getonhv(){return onhover;}
+    void cmdwn(genv::event);
+    void conhv(usi,usi);
     virtual ~Widget();
 protected:
 usi x,y,w,h;
-bool mousedown,onhover;
+bool mousedown,onhover,selected;
 };
 
 #endif // WIDGET_HPP
