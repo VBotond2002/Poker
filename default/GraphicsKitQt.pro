@@ -8,7 +8,8 @@ SOURCES += \
         card.cpp \
         main.cpp \
         myapp.cpp \
-        object.cpp
+        object.cpp \
+        widget.cpp
 
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/./ -lgraphics64
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/./ -lgraphics64d
@@ -33,4 +34,5 @@ HEADERS += \
     application.hpp \
     card.hpp \
     myapp.hpp \
-    object.hpp
+    object.hpp \
+    widget.hpp
