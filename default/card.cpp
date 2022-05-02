@@ -1,26 +1,6 @@
 #include "card.hpp"
 using namespace genv;
-void Card::loadimage(std::string path){
-    std::ifstream in;
-    int img_w,img_h;
-    in.open(path);
-    in>>img_w;
-    in>>img_h;
-    for(int i=0;i<img_h;i++){
-       for(int j=0;j<img_w;j++){
-           std::vector<int> add;
-           for(int k=0;k<3;k++){
-               int tempval;
-               in>>tempval>>std::ws;
-               add.push_back(tempval);
-           }
-           //std::cout<<add[0]<<","<<add[1]<<","<<add[2]<<std::endl;
-           img.push_back(add);
-       }
-    }
 
-     in.close();
-}
 Card::Card(usi a, usi b, usi c, usi d,CARDNUM e,CARDCOLOR col): Object(a,b,c,d)
 {
     type=e;
@@ -200,25 +180,41 @@ Card::Card(usi a, usi b, usi c, usi d,CARDNUM e,CARDCOLOR col): Object(a,b,c,d)
         }
     }
 }
+void Card::loadimage(std::string path){
+    std::ifstream in;
+    int img_w,img_h;
+    in.open(path);
+    in>>img_w;
+    in>>img_h;
+    for(int i=0;i<img_h;i++){
+       for(int j=0;j<img_w;j++){
+           std::vector<int> add;
+           for(int k=0;k<3;k++){
+               int tempval;
+               in>>tempval>>std::ws;
+               add.push_back(tempval);
+           }
+           img.push_back(add);
+       }
+    }
+     in.close();
+}
 void Card::handle(event ev){
 
 }
 void Card::update(){
-
 }
 void Card::show(){
     int imgindex=0;
     for(size_t i=y;i<y+h;i++){
         for(size_t j=x;j<x+w;j++){
-            gout<<move_to(j,i);
             gout<<color(img[imgindex][0],img[imgindex][1],img[imgindex][2]);
+            gout<<move_to(j,i);
             gout<<dot;
             imgindex++;
+
         }
     }
-
-
-
 }
 Card::~Card(){
 

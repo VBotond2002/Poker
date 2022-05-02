@@ -13,7 +13,7 @@ public:
     void update();
     void apploop();
 private:
-    Card* testcard;
+    std::vector<Card*> deck;
 };
 
 #endif // MYAPP_HPP

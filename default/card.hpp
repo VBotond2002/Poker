@@ -38,6 +38,12 @@ public:
     void show();
     CARDNUM gettype(){return type;}
     CARDCOLOR getcolor(){return ccolor;}
+    void setxy(usi a ,usi b){x=a;y=b;}
+    void transxy(usi a, usi b){x+=a;y+=b;};
+    usi getx(){return x;}
+    usi gety(){return y;}
+    usi getw(){return w;}
+    usi geth(){return h;}
     virtual ~Card();
 protected:
     void loadimage(std::string path);
