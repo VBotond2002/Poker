@@ -1,7 +1,6 @@
 #ifndef OBJECT_HPP
 #define OBJECT_HPP
 #include "graphics.hpp"
-struct Color{unsigned int r,g,b;};
 class Object
 {
 public:

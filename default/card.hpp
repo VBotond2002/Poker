@@ -3,7 +3,8 @@
 #include "object.hpp"
 #include "iostream"
 #include "vector"
-#include "math.h"
+#include "fstream"
+#include "application.hpp"
 typedef unsigned int usi;
 enum CARDNUM{
     two,//0 index
@@ -26,9 +27,7 @@ enum CARDCOLOR{
     clover,//tref
     pikes//pikk
 };
-struct Point{
-    int x, y;
-};
+
 
 class Card: public Object
 {
@@ -41,10 +40,11 @@ public:
     CARDCOLOR getcolor(){return ccolor;}
     virtual ~Card();
 protected:
+    void loadimage(std::string path);
     usi x,y,w,h;
     CARDNUM type;
     CARDCOLOR ccolor;
-    //std::vector<std::vector<Color>>
+    std::vector<std::vector<int>> img;
 };
 
 #endif // CARD_HPP

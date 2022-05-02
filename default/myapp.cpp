@@ -2,7 +2,7 @@
 using namespace genv;
 MyApp::MyApp(usi _W_, usi _H_):Application(_W_,_H_)
 {
-    testcard=new Card(10,10,57,89,ace,hearts);
+    testcard=new Card(10,10,72,96,ace,pikes);
     setbackgroundcolor(49, 112, 24);
     gout.load_font("LiberationSans-Regular.ttf",20);
 }
