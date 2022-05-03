@@ -4,6 +4,7 @@
 #include "card.hpp"
 #include "iostream"
 #include "widget.hpp"
+#include "profile.hpp"
 class MyApp: public Application
 {
 public:
