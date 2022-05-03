@@ -1,5 +1,5 @@
 #include "widget.hpp"
-
+using namespace genv;
 Widget::Widget(usi a, usi b, usi c, usi d)
 {
 x=a;
@@ -16,6 +16,14 @@ void Widget::conhv(usi a, usi b){
  }else{
      onhover=false;
  }
+}
+void Widget::drawborder(usi a,usi b,usi c){
+    gout<<color(a,b,c);
+    gout<<move_to(x,y);
+    gout<<line(w,0);
+    gout<<line(0,h);
+    gout<<line(-w,0);
+    gout<<line(0,-h);
 }
 void Widget::cmdwn(genv::event ev){
     if(ev.type==genv::ev_mouse&&ev.button==1&&onhover){

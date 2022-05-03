@@ -13,10 +13,11 @@ public:
     bool getonhv(){return onhover;}
     void cmdwn(genv::event);//calculate mousedown if onhover
     void conhv(usi,usi);//calculete onhover
+    void drawborder(usi,usi,usi);
     virtual ~Widget();
 protected:
 usi x,y,w,h,POT;
-bool mousedown,onhover,selected;
+bool mousedown,onhover,selected=false;
 };
 
 #endif // WIDGET_HPP

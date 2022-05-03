@@ -14,6 +14,7 @@ public:
     void show();
     void update();
     void apploop();
+    void card_to_player();
 private:
     std::vector<Card*> deck;
     std::vector<Widget*> widgets;
