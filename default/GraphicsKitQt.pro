@@ -9,6 +9,7 @@ SOURCES += \
         main.cpp \
         myapp.cpp \
         object.cpp \
+        profile.cpp \
         widget.cpp
 
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/./ -lgraphics64
@@ -33,6 +34,8 @@ DEPENDPATH += $$PWD/SDL2
 HEADERS += \
     application.hpp \
     card.hpp \
+    common.h \
     myapp.hpp \
     object.hpp \
+    profile.hpp \
     widget.hpp

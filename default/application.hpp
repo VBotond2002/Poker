@@ -2,8 +2,9 @@
 #define APPLICATION_HPP
 #include "graphics.hpp"
 #include "vector"
+#include "common.h"
 typedef unsigned int usi;
-struct Color{usi r,g,b;};
+
 class Application
 {
 public:

@@ -3,6 +3,7 @@
 #include "application.hpp"
 #include "card.hpp"
 #include "iostream"
+#include "widget.hpp"
 class MyApp: public Application
 {
 public:
@@ -14,6 +15,7 @@ public:
     void apploop();
 private:
     std::vector<Card*> deck;
+    std::vector<Widget*> widgets;
 };
 
 #endif // MYAPP_HPP
