@@ -186,6 +186,7 @@ void Card::loadimage(std::string path){
     in.open(path);
     in>>img_w;
     in>>img_h;
+    if(path!="src/Ck.bmp.kep"){
     for(int i=0;i<img_h;i++){
        for(int j=0;j<img_w;j++){
            std::vector<int> add;
@@ -196,6 +197,21 @@ void Card::loadimage(std::string path){
            }
            img.push_back(add);
        }
+    }
+    }else{
+        for(int i=0;i<img_h;i++){
+           for(int j=0;j<img_w;j++){
+               std::vector<int> add;
+               for(int k=0;k<3;k++){
+                   int tempval;
+                   in>>tempval>>std::ws;
+                   add.push_back(tempval);
+               }
+               img.push_back(add);
+           }
+           std::vector<int> temp={255,255,255};
+           img.push_back(temp);
+        }
     }
      in.close();
 }

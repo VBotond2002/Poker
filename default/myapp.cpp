@@ -69,8 +69,8 @@ void MyApp::apploop(){
     event ev;
     gin.timer(1000/60);
     while(gin>>ev){
-        handle(ev);
-        if(ev.type==ev_timer){
+        if(ev.type==ev_mouse||ev.type==ev_key)handle(ev);
+        else if(ev.type==ev_timer){
             update();
             show();
         }
@@ -95,7 +95,6 @@ Card* MyApp::pick_random_card(){
                 }
             }
             if(counter==table.size()){
-
                 return curr;
             }
         }
