@@ -19,7 +19,7 @@ void Profile::setcards(Card* a, Card* b){
     CARD1=a;
     CARD2=b;
     CARD1->setxy(x,y-(CARD1->geth()/2));
-    CARD2->setxy(x+72,y-(CARD2->geth()/2));
+    CARD2->setxy(x+CARD1->getw(),y-(CARD2->geth()/2));
 }
 void Profile::handle(genv::event){
 

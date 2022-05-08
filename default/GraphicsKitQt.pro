@@ -5,6 +5,7 @@ CONFIG -= qt
 
 SOURCES += \
         application.cpp \
+        button.cpp \
         card.cpp \
         main.cpp \
         myapp.cpp \
@@ -33,6 +34,7 @@ DEPENDPATH += $$PWD/SDL2
 
 HEADERS += \
     application.hpp \
+    button.hpp \
     card.hpp \
     common.h \
     myapp.hpp \

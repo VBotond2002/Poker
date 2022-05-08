@@ -1,6 +1,7 @@
 #ifndef COMMON_H
 #define COMMON_H
 #include "sstream"
+#include "functional"
 typedef unsigned int usi;
 struct Color{usi r,g,b;};
 enum CARDNUM{

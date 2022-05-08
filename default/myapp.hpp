@@ -5,6 +5,7 @@
 #include "iostream"
 #include "widget.hpp"
 #include "profile.hpp"
+#include "button.hpp"
 class MyApp: public Application
 {
 public:
@@ -15,8 +16,11 @@ public:
     void update();
     void apploop();
     void card_to_player();
+    void bet_by_player(Profile*,usi);
 private:
+    usi TABLE_MONEY;
     std::vector<Card*> deck;
+    std::vector<Card*> table;
     std::vector<Widget*> widgets;
 };
 

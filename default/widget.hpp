@@ -12,7 +12,7 @@ public:
     bool getmdwn(){return mousedown;}
     bool getonhv(){return onhover;}
     void cmdwn(genv::event);//calculate mousedown if onhover
-    void conhv(usi,usi);//calculete onhover
+    void conhv(usi,usi);//calculate onhover
     void drawborder(usi,usi,usi);
     virtual ~Widget();
 protected:
