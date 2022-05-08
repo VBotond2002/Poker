@@ -212,10 +212,15 @@ void Card::show(){
             gout<<move_to(j,i);
             gout<<dot;
             imgindex++;
-
         }
     }
 }
 Card::~Card(){
 
+}
+bool Card::operator==(Card* c2){
+    return c2->getcolor()==this->getcolor()&&c2->gettype()==this->gettype();
+}
+bool Card::operator!=(Card* c2){
+    return c2->getcolor()!=this->getcolor()||c2->gettype()!=this->gettype();
 }

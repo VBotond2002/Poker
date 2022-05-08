@@ -42,3 +42,11 @@ void Profile::show(){
     drawborder(255,255,255);
 }
 Profile::~Profile(){}
+void Profile::setcard1(Card*a){
+    CARD1=a;
+    CARD1->setxy(x,y-(CARD1->geth()/2));
+}
+void Profile::setcard2(Card*a){
+    CARD2=a;
+    CARD2->setxy(x+CARD1->getw(),y-(CARD2->geth()/2));
+}

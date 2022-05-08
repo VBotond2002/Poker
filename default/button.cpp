@@ -27,3 +27,4 @@ void Button::show(){
     gout<<text(txt);
     drawborder(0,0,0);
 }
+

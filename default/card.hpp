@@ -24,6 +24,8 @@ public:
     usi gety(){return y;}
     usi getw(){return w;}
     usi geth(){return h;}
+    bool operator==(Card* c2);
+    bool operator!=(Card* c2);
     virtual ~Card();
 protected:
     void loadimage(std::string path);
