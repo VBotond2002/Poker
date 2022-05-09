@@ -19,7 +19,7 @@ MyApp::MyApp(usi _W_, usi _H_):Application(_W_,_H_)
     Button* bt2=new Button(_W/2+deck[0]->getw()+100,_H-deck[0]->geth()/2,100,deck[0]->geth()/2,"Check");
     Button* bt3=new Button(_W/2+deck[0]->getw()+200,_H-deck[0]->geth()/2,100,deck[0]->geth()/2,"Raise");
     sl1=new Slider(bt1->getx(),bt1->gety()-20,bt1->getw()*3,20);
-    bt1->setclick_action([this](){bet_by_player(p1,20);});
+
     widgets.push_back(p1);
     widgets.push_back(bt1);
     widgets.push_back(bt2);

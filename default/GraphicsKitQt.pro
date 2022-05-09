@@ -8,6 +8,7 @@ SOURCES += \
         button.cpp \
         card.cpp \
         main.cpp \
+        mouse.cpp \
         myapp.cpp \
         object.cpp \
         profile.cpp \
@@ -39,6 +40,7 @@ HEADERS += \
     button.hpp \
     card.hpp \
     common.h \
+    mouse.hpp \
     myapp.hpp \
     object.hpp \
     profile.hpp \

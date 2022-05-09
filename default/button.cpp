@@ -14,7 +14,9 @@ void Button::handle(genv::event ev){
 }
 void Button::update(){
     if(mousedown){
+        if(click_action!=NULL){
         click_action();
+        }
     }
 }
 void Button::show(){

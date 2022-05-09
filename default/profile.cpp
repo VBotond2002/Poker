@@ -51,6 +51,6 @@ void Profile::setcard2(Card*a){
     CARD2->setxy(x+CARD1->getw(),y-(CARD2->geth()/2));
 }
 void Profile::change_money(int a){
-    if(abs(a)<=MONEY)MONEY+=a;
+    if((usi)abs(a)<=MONEY)MONEY+=a;
     else MONEY=0;
 }

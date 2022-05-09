@@ -4,6 +4,7 @@
 #include "widget.hpp"
 #include "common.h"
 #include "sbutton.hpp"
+#include "mouse.hpp"
 class Slider: public Widget
 {
 public:
@@ -14,6 +15,10 @@ public:
     virtual void show();
 protected:
     SButton* bt;
+    usi MONEY=0;
+    usi mx,my;
+    bool firstclick=false;
+    Mouse mouse_tracker;
 };
 
 #endif // SLIDER_H
