@@ -11,6 +11,8 @@ SOURCES += \
         myapp.cpp \
         object.cpp \
         profile.cpp \
+        sbutton.cpp \
+        slider.cpp \
         widget.cpp
 
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/./ -lgraphics64
@@ -40,4 +42,6 @@ HEADERS += \
     myapp.hpp \
     object.hpp \
     profile.hpp \
+    sbutton.hpp \
+    slider.hpp \
     widget.hpp

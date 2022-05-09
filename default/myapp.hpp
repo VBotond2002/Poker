@@ -8,6 +8,7 @@
 #include "button.hpp"
 #include "random"
 #include "time.h"
+#include "slider.hpp"
 class MyApp: public Application
 {
 public:
@@ -31,6 +32,7 @@ private:
     usi TABLE_MONEY;
     Profile* p1;
     Profile* p2;
+    Slider* sl1;
     std::vector<Card*> deck;
     std::vector<Card*> table;
     std::vector<Widget*> widgets;

@@ -14,6 +14,10 @@ public:
     void cmdwn(genv::event);//calculate mousedown if onhover
     void conhv(usi,usi);//calculate onhover
     void drawborder(usi,usi,usi);
+    usi getx(){return x;}
+    usi gety(){return y;}
+    usi getw(){return w;}
+    usi geth(){return h;}
     virtual ~Widget();
 protected:
 usi x,y,w,h,POT;

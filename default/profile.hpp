@@ -10,7 +10,7 @@ public:
     virtual void handle(genv::event);
     virtual void update();
     virtual void show();
-    void change_money(int a){MONEY+=a;};
+    void change_money(int a);
     void setbase_color(usi,usi,usi);
     void sethh_color(usi,usi,usi);
     void setcards(Card* a,Card* b);
