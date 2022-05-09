@@ -15,7 +15,7 @@ public:
     virtual ~Button();
 protected:
     std::string txt;
-    std::function<void()> click_action();
+    std::function<void()> click_action=NULL;
 };
 
 #endif // BUTTON_HPP

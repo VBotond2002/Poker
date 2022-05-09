@@ -6,7 +6,7 @@ txt=s;
 }
 Button::~Button(){};
 void Button::setclick_action(std::function<void()> f){
-     //click_action=f;
+     click_action=f;
 }
 void Button::handle(genv::event ev){
     conhv(ev.pos_x,ev.pos_y);
@@ -14,7 +14,8 @@ void Button::handle(genv::event ev){
 }
 void Button::update(){
     if(mousedown){
-        //click_action();
+        click_action();
+
     }
 }
 void Button::show(){

@@ -18,7 +18,7 @@ MyApp::MyApp(usi _W_, usi _H_):Application(_W_,_H_)
     Button* bt1=new Button(_W/2+deck[0]->getw(),_H-deck[0]->geth()/2,100,deck[0]->geth()/2,"Bet");
     Button* bt2=new Button(_W/2+deck[0]->getw()+100,_H-deck[0]->geth()/2,100,deck[0]->geth()/2,"Check");
     Button* bt3=new Button(_W/2+deck[0]->getw()+200,_H-deck[0]->geth()/2,100,deck[0]->geth()/2,"Raise");
-    bt1->setclick_action([](){std::cout<<"bt1 clicked";});
+    bt1->setclick_action([this](){bet_by_player(p1,20);});
     widgets.push_back(p1);
     widgets.push_back(bt1);
     widgets.push_back(bt2);
@@ -42,14 +42,7 @@ void MyApp::update(){
     for(size_t i=0;i<widgets.size();i++){
         widgets[i]->update();
     }
-    clear_table();
-    clear_hand();
-    release_hand();
-    if(is_released_hand()){
-        release_flop();
-        release_turn();
-        release_river();
-    }
+
 }
 void MyApp::show(){
     Color *a=&background_color;

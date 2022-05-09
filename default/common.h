@@ -25,6 +25,12 @@ enum CARDCOLOR{
     clover,//tref
     pikes//pikk
 };
+enum STAGE{
+    preflop,
+    flop,
+    turn,
+    river
+};
 template<typename T> std::string convts(T a){//type T to string
     std::stringstream ss;
     ss<<a;
