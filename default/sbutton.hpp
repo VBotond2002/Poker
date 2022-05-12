@@ -15,6 +15,7 @@ public:
     void sety(usi a){y=a;};
     void transx(usi a){x+=a;};
     void transy(usi a){y+=a;}
+    void setmdwn(bool a){mousedown=a;}
     virtual ~SButton();
 protected:
     Color bg_color={105, 35, 26},hh_color={150, 46, 33};

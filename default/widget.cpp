@@ -17,6 +17,16 @@ void Widget::conhv(usi a, usi b){
      onhover=false;
  }
 }
+bool Widget::isclicked(event ev){
+    if(ev.type==ev_mouse&&ev.button==1&&ishover(ev)){
+        return true;
+    }return false;
+}
+bool Widget::ishover(event ev){
+    if(ev.type==ev_mouse&&ev.pos_x>x&&ev.pos_x<x+w&&ev.pos_y>y&&ev.pos_y<y+h){
+        return true;
+    }return false;
+}
 void Widget::drawborder(usi a,usi b,usi c){
     gout<<color(a,b,c);
     gout<<move_to(x,y);

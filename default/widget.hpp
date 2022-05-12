@@ -14,6 +14,8 @@ public:
     void cmdwn(genv::event);//calculate mousedown if onhover
     void conhv(usi,usi);//calculate onhover
     void drawborder(usi,usi,usi);
+    bool isclicked(genv::event);
+    bool ishover(genv::event);
     usi getx(){return x;}
     usi gety(){return y;}
     usi getw(){return w;}

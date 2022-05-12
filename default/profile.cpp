@@ -3,7 +3,7 @@ using namespace genv;
 Profile::Profile(usi a,usi b,usi c,usi d): Widget(a,b,c,d)
 {
     setbase_color(50,50,50);
-    MONEY=100;
+    MONEY=1000;
 }
 void Profile::setbase_color(usi a, usi b, usi c){
     base_color.r=a;

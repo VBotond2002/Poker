@@ -16,6 +16,7 @@ public:
     void setcards(Card* a,Card* b);
     void setcard1(Card*a);
     void setcard2(Card*a);
+    inline usi getmoney(){return MONEY;}
     void clear_hand(){CARD1=nullptr;CARD2=nullptr;}
     Card* getcard1(){return CARD1;};
     Card* getcard2(){return CARD2;}
