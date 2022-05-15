@@ -9,6 +9,7 @@
 #include "random"
 #include "time.h"
 #include "slider.hpp"
+
 class MyApp: public Application
 {
 public:
