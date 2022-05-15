@@ -4,6 +4,7 @@
 #include "widget.hpp"
 #include "common.h"
 #include "sbutton.hpp"
+#include "math.h"
 class Slider: public Widget
 {
 public:

@@ -35,11 +35,10 @@ void Slider::handle(event ev){
 }
 void Slider::update(){
     bt->update();
-    MONEY=user_money-(user_money-(bt->getx()-initial_money));
-    if(MONEY>user_money){
-        MONEY-=MONEY-user_money;
-    }
-
+    float egyseg=(float)user_money/(float)w;
+    egyseg=ceil(egyseg);
+    MONEY=(bt->getx()-initial_money)*(int)egyseg;
+    if(MONEY>user_money)MONEY=user_money;
 }
 void Slider::show(){
     gout<<color(105, 35, 26);
@@ -51,6 +50,8 @@ void Slider::show(){
     ss<<MONEY;
     std::string out;
     ss>>out;
-    gout<<move_to(x+w/2-gout.twidth(out),y-gout.cascent());
+    out+='$';
+    gout<<move_to(x+w/2-gout.twidth(out)/2,y-gout.cascent());
     gout<<text(out);
 }
+
