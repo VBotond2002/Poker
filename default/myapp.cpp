@@ -14,16 +14,18 @@ MyApp::MyApp(usi _W_, usi _H_):Application(_W_,_H_)
         TABLE_MONEY=0;
     Profile* _p1=new Profile(_W/2-deck[0]->getw(),_H-deck[0]->geth(),deck[0]->getw()*2,deck[0]->geth()/2);
     p1=_p1;
-    release_hand();
+
     Button* bt1=new Button(_W/2+deck[0]->getw(),_H-deck[0]->geth()/2,100,deck[0]->geth()/2,"Bet");
-    Button* bt2=new Button(_W/2+deck[0]->getw()+100,_H-deck[0]->geth()/2,100,deck[0]->geth()/2,"Check");
-    Button* bt3=new Button(_W/2+deck[0]->getw()+200,_H-deck[0]->geth()/2,100,deck[0]->geth()/2,"Raise");
+    Button* bt2=new Button(_W/2+deck[0]->getw()+100,_H-deck[0]->geth()/2,100,deck[0]->geth()/2,"Next");
+   // Button* bt3=new Button(_W/2+deck[0]->getw()+200,_H-deck[0]->geth()/2,100,deck[0]->geth()/2,"Raise");
+    bt2->setclick_action([this](){next_phase();});
+    bt1->setclick_action([this](){bet_by_player();});
     sl1=new Slider(bt1->getx(),bt1->gety()-20,bt1->getw()*3,20);
     sl1->setusermoney(p1->getmoney());
     widgets.push_back(p1);
     widgets.push_back(bt1);
     widgets.push_back(bt2);
-    widgets.push_back(bt3);
+    //widgets.push_back(bt3);
     widgets.push_back(sl1);
 
 
@@ -40,11 +42,176 @@ void MyApp::handle(event ev){
         widgets[i]->handle(ev);
     }
 }
+void MyApp::next_phase(){
+    int i=current_phase;
+    i++;
+    if(i<=4){
+        current_phase=static_cast<PHASE>(i);
+    }else if(i>4){
+        current_phase=static_cast<PHASE>(0);
+    }
+    action_performed=true;
+}
 void MyApp::update(){
     for(size_t i=0;i<widgets.size();i++){
         widgets[i]->update();
     }
+    if(action_performed){
+    switch(current_phase){
+        case BEFORE_FLOP:
 
+        release_hand();
+        action_performed=false;
+        break;
+    case FLOP:
+        release_flop();
+        action_performed=false;
+        break;
+    case TURN:
+        release_turn();
+        action_performed=false;
+        break;
+    case RIVER:
+        release_river();
+        action_performed=false;
+        break;
+    case PAY:
+        pay();
+        clear_hand();
+        clear_table();
+        TABLE_MONEY=0;
+        action_performed=false;
+
+        break;
+    }
+    }
+
+
+}
+bool MyApp::search_pair(){
+    std::vector<Card*> all;
+    all.push_back(p1->getcard1());
+    all.push_back(p1->getcard2());
+    all.insert(all.end(),table.begin(),table.end());
+    int c=0;
+    CARDNUM lasttype;
+    for(size_t i=0;i<all.size();i++){
+        for(size_t j=i+1;j<all.size()-1;j++){
+            if(c!=0){
+                 if(all[i]->gettype()==all[j]->gettype()&&lasttype==all[i]->gettype()){
+                    c++;
+                    lasttype=all[i]->gettype();
+                }
+            }
+           else if(all[i]->gettype()==all[j]->gettype()){
+               c++;
+               lasttype=all[i]->gettype();
+           }
+        }
+    }if(c==1)return true;
+    return false;
+}
+bool MyApp::search_drill(){
+    std::vector<Card*> all;
+    all.push_back(p1->getcard1());
+    all.push_back(p1->getcard2());
+    all.insert(all.end(),table.begin(),table.end());
+    int c=0;
+    CARDNUM lasttype;
+    for(size_t i=0;i<all.size();i++){
+        for(size_t j=i+1;j<all.size()-1;j++){
+            if(c!=0){
+                 if(all[i]->gettype()==all[j]->gettype()&&lasttype==all[i]->gettype()){
+                    c++;
+                    lasttype=all[i]->gettype();
+                }
+            }
+           else if(all[i]->gettype()==all[j]->gettype()){
+               c++;
+               lasttype=all[i]->gettype();
+           }
+        }
+    }if(c==2)return true;
+    return false;
+}bool MyApp::search_poker(){
+    std::vector<Card*> all;
+    all.push_back(p1->getcard1());
+    all.push_back(p1->getcard2());
+    all.insert(all.end(),table.begin(),table.end());
+    int c=0;
+    CARDNUM lasttype;
+    for(size_t i=0;i<all.size();i++){
+        for(size_t j=i+1;j<all.size()-1;j++){
+            if(c!=0){
+                 if(all[i]->gettype()==all[j]->gettype()&&lasttype==all[i]->gettype()){
+                    c++;
+                    lasttype=all[i]->gettype();
+                }
+            }
+           else if(all[i]->gettype()==all[j]->gettype()){
+               c++;
+               lasttype=static_cast<CARDNUM>(all[i]->gettype());
+           }
+        }
+    }if(c==3)return true;
+    return false;
+}bool MyApp::search_flush(){
+    std::vector<Card*> all;
+    all.push_back(p1->getcard1());
+    all.push_back(p1->getcard2());
+    all.insert(all.end(),table.begin(),table.end());
+    int c=0;
+    for(size_t i=0;i<all.size();i++){
+        for(size_t j=i+1;j<all.size()-1;j++){
+           if(all[i]->getcolor()==all[j]->getcolor()){
+               c++;
+           }
+        }
+    }if(c==4)return true;
+    return false;
+}
+bool MyApp::search_row(){
+    std::vector<Card*> all;
+    all.push_back(p1->getcard1());
+    all.push_back(p1->getcard2());
+    all.insert(all.end(),table.begin(),table.end());
+    std::vector<usi> values;
+    for(size_t i=0;i<all.size();i++){
+       usi val=all[i]->gettype();
+       values.push_back(val);
+    }
+    std::sort(values.begin(),values.end());
+    for(size_t i=0;i<values.size()-1;i++){
+        if(values[i]+1!=values[i+1]){
+            return false;
+        }
+    }
+    return true;
+}
+void MyApp::pay(){
+    std::cout<<"before payment:"<<p1->getmoney()<<std::endl;
+    if(search_poker()){
+        p1->change_money(TABLE_MONEY*5);
+        sl1->setusermoney(p1->getmoney());
+        std::cout<<"poker found ";
+    }else if(search_row()){
+        p1->change_money(TABLE_MONEY*4);
+        sl1->setusermoney(p1->getmoney());
+        std::cout<<"row found ";
+    }else if(search_flush()){
+        p1->change_money(TABLE_MONEY*3);
+        sl1->setusermoney(p1->getmoney());
+        std::cout<<"flush found ";
+    }else if(search_drill()){
+        p1->change_money(TABLE_MONEY*2);
+        sl1->setusermoney(p1->getmoney());
+        std::cout<<"drill found ";
+    }else if(search_pair()){
+        p1->change_money(TABLE_MONEY*1);
+        sl1->setusermoney(p1->getmoney());
+        std::cout<<"pair found ";
+    }
+    std::cout<<"after payment:"<<p1->getmoney()<<std::endl;
 }
 void MyApp::show(){
     Color *a=&background_color;
@@ -57,6 +224,15 @@ void MyApp::show(){
     for(size_t i=0;i<table.size();i++){
         table[i]->show();
     }
+    std::string converted_money=convts<usi>(TABLE_MONEY);
+    converted_money+='$';
+    int x1=p1->getx();
+    int y1=p1->gety();
+    int w1=p1->getw();
+    int h1=p1->geth();
+    gout<<move_to(x1+w1/2-gout.twidth(converted_money)/2,y1-h1*2);
+    gout<<color(0,0,0);
+    gout<<text(converted_money);
     gout<<refresh;
 }
 
@@ -72,9 +248,14 @@ void MyApp::apploop(){
 
     }
 }
-void MyApp::bet_by_player(Profile* a,usi b){
-    a->change_money(-b);
-    TABLE_MONEY+=b;
+void MyApp::bet_by_player(){
+    usi b=sl1->getmoney();
+    if(p1->getmoney()-b>=0){
+        p1->change_money(-b);
+        sl1->setusermoney(p1->getmoney());
+        TABLE_MONEY+=b;
+    }
+
 }
 Card* MyApp::pick_random_card(){
     srand(time(NULL));

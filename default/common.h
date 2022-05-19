@@ -3,6 +3,7 @@
 #include "sstream"
 #include "functional"
 #include "iostream"
+#include "algorithm"
 typedef unsigned int usi;
 struct Color{usi r,g,b;};
 enum CARDNUM{

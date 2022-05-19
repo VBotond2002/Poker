@@ -28,8 +28,11 @@ void Profile::update(){
 
 }
 void Profile::show(){
-    CARD1->show();
-    CARD2->show();
+    if(CARD1!=nullptr&&CARD2!=nullptr){
+        CARD1->show();
+        CARD2->show();
+    }
+
     if(selected)gout<<color(hh_color.r,hh_color.g,hh_color.b);
     else gout<<color(base_color.r,base_color.g,base_color.b);
     gout<<move_to(x,y);
@@ -51,6 +54,9 @@ void Profile::setcard2(Card*a){
     CARD2->setxy(x+CARD1->getw(),y-(CARD2->geth()/2));
 }
 void Profile::change_money(int a){
-    if((usi)abs(a)<=MONEY)MONEY+=a;
-    else MONEY=0;
+    if(a<0){
+        if((usi)abs(a)<=MONEY)MONEY+=a;
+        else MONEY=0;
+    }
+   else MONEY+=a;
 }

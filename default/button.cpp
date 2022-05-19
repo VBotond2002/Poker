@@ -16,6 +16,7 @@ void Button::update(){
     if(mousedown){
         if(click_action!=NULL){
         click_action();
+
         }
     }
 }
@@ -28,5 +29,6 @@ void Button::show(){
     gout<<move_to(x+w/2-gout.twidth(txt)/2,y+h/2-gout.cascent()+gout.cdescent());
     gout<<text(txt);
     drawborder(0,0,0);
+    mousedown=false;
 }
 
